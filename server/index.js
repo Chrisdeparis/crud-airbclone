@@ -30,7 +30,7 @@ app.post('/api/insert', (req, res) => {
     const appartDescription = req.body.appartDescription;
 
     const sqlInsert = "INSERT INTO appartements (appart_title, appart_description) VALUES (?,?)";
-    db.query(sqlInsert, [appart_title, appart_description], (err, result) => {
+    db.query(sqlInsert, [appartTitle, appartDescription], (err, result) => {
         console.log(result);
     });
 });
