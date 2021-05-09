@@ -18,9 +18,11 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.get('/api/get', (req, res) => {
     const appartTitle = req.body.appartTitle;
     const appartDescription = req.body.appartDescription;
+    const appartCondition = req.body.appartCondition;
+    const appartEtoile = req.body.appartEtoile;
     
     const sqlSelect = "SELECT * FROM appartements";
-    db.query(sqlSelect, [appartTitle, appartDescription], (err, result) => {
+    db.query(sqlSelect, [appartTitle, appartDescription, appartCondition, appartEtoile], (err, result) => {
         res.send(result);
     });
 })
@@ -28,9 +30,12 @@ app.get('/api/get', (req, res) => {
 app.post('/api/insert', (req, res) => {
     const appartTitle = req.body.appartTitle;
     const appartDescription = req.body.appartDescription;
+    const appartCondition = req.body.appartCondition;
+    const appartEtoile = req.body.appartEtoile;
 
-    const sqlInsert = "INSERT INTO appartements (appart_title, appart_description) VALUES (?,?)";
-    db.query(sqlInsert, [appartTitle, appartDescription], (err, result) => {
+
+    const sqlInsert = "INSERT INTO appartements (appart_title, appart_description, appart_condition, appart_etoile) VALUES (?,?,?,?)";
+    db.query(sqlInsert, [appartTitle, appartDescription, appartCondition, appartEtoile], (err, result) => {
         console.log(result);
     });
 });
