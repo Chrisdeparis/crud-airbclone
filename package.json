@@ -1,0 +1,25 @@
+{
+  "name": "crud-airbclone",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "cd server && nodemon index.js && mysqld",
+    "start": "concurrently \"npm run dev\"  \"npm run client\"",
+    "client": "cd client && npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Chrisdeparis/crud-airbclone.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Chrisdeparis/crud-airbclone/issues"
+  },
+  "homepage": "https://github.com/Chrisdeparis/crud-airbclone#readme",
+  "dependencies": {
+    "concurrently": "^6.1.0"
+  }
+}
